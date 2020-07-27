@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{%load static %}
+{%block title %}{%endblock%}
+{% block content %}
+<h5 class="mt-0">Detalles de la prenda</h5>
+<div class="media">
+  {% if object.prenda.imagen %}
+  <a href="{{object.prenda.imagen.url}}"> <img src="{{object.prenda.imagen.url}}" class="img-thumbnail" width="500" height="1000" alt="Imagen no encontrada"></a>
+  {%else%}
+  <td><img src="#" class="img-thumbnail" width="150" height="300" alt="Imagen no encontrada, agregue una"></a></td>
+  {%endif%}
+  <div class="media-body">
+    <br>
+    <h4>
+Nombre: {{object.prenda.nombre}}<br>
+Categoria: {{object.prenda.tipo}}<br>
+Marca: {{object.prenda.marca}}<br>
+Color: {{object.prenda.color}}<br>
+Categoria: {{object.categoria.categoria}}<br>
+Fecha de registro: {{object.prenda.fecha_registro}}<br>
+Notas: {{object.prenda.notas}}<br>
+<a class="btn btn-outline-info" href="{% url 'prendalist' %}">|back|</a>
+<br>
+{% if object.id %}
+<a class="btn btn-outline-info " href="{% url 'prendausada' id=object.id %}" role="button">Marcar como usada</a>
+{%endif%}
+    </h4>
+  </div>
+</div>
+{%endblock%}

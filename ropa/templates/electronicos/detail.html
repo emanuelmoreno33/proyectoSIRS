@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{%load static %}
+{%block title %}{%endblock%}
+{% block content %}
+<h5 class="mt-0">Detalles del auto</h5>
+<div class="media">
+  {% if pk.imagen %}
+  <a href="{{object.imagen.url}}"> <img src="{{object.imagen.url}}" class="img-thumbnail" width="500" height="1000" alt="Imagen no encontrada"></a>
+  {%else%}
+  <img src="#" class="img-thumbnail" width="500" height="1000" alt="Imagen no encontrada"></a>
+  {%endif%}
+  <div class="media-body">
+    <br>
+    <h4>
+Nombre: {{object.nombre}}<br>
+Categoria: {{object.categoria}}<br>
+Cantidad: {{object.cantidad}}<br>
+Disponible: {{object.disponible}}<br>
+Descripcion: {{object.descripcion}}<br>
+Costo: ${{object.costo}}<br>
+Ubicacion: {{object.ubicacion}}<br>
+
+<a href="{% url 'electronicolist' %}">|back|</a>
+</h4>
+  </div>
+</div>
+{%endblock%}

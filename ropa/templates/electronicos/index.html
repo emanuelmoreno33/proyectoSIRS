@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{%load static %}
+
+{%block title %}Electronicos de {{request.user}} {% endblock %}
+
+{% block content %}
+
+<center>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm">
+    <h3>Categoria</h3>
+    <a class="btn btn-outline-info " href="{% url 'categoriacreate2' %}" role="button">Nuevo Color</a>
+    <a class="btn btn-outline-info " href="{% url 'categorialist2' %}" role="button">Ver Colores</a>
+    </div>
+    <div class="col-sm">
+    <h3>Ubicacion</h3>
+    <a class="btn btn-outline-info " href="{% url 'ubicacioncreate' %}" role="button">Nueva Marca</a>
+    <a class="btn btn-outline-info " href="{% url 'ubicacionlist' %}" role="button">Ver Marcas</a>
+    </div>
+    <div class="col-sm">
+    <h3>Electronicos</h3>
+    <a class="btn btn-outline-info " href="{% url 'electronicocreate' %}" role="button">Nuevo Tipo de prenda</a>
+    <a class="btn btn-outline-info " href="{% url 'electronicolist' %}" role="button">Ver Tipo de prenda</a>
+    </div>
+    </div>
+    </div>
+</center>
+
+{%endblock%}

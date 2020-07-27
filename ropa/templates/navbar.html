@@ -1,0 +1,82 @@
+<div>
+    <nav class="navbar  navbar-expand-lg navbar-light" style="background-color: #10689e;">
+      <a class="navbar-brand" href="#">Sistema general de registro</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Inicio</span></a>
+          </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Transportes de GTA online
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'autoCreate' %}">Agregar auto</a>
+              <a class="dropdown-item" href="{% url 'autolist' %}">Listar autos</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'placaCreate' %}">Agregar placa</a>
+              <a class="dropdown-item" href="{% url 'placalist' %}">Listar placas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'garajeCreate' %}">Agregar garaje</a>
+              <a class="dropdown-item" href="{% url 'garajelist' %}">Listar garajes</a>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Ropa
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{%url 'prendacreate'%}">Agregar nueva prenda</a>
+              <a class="dropdown-item" href="{%url 'prendalist'%}">Listar prendas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{%url 'cortacreate'%}">Agregar nueva manga corta</a>
+              <a class="dropdown-item" href="{%url 'cortalist'%}">Listar manga cortas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{%url 'colorcreate'%}">Agregar color</a>
+              <a class="dropdown-item" href="{%url 'colorlist'%}">Listar colores</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{%url 'marcacreate'%}">Agregar Marca</a>
+              <a class="dropdown-item" href="{%url 'marcalist'%}">Listar Marcas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{%url 'tipocreate'%}">Agregar Tipo de prenda</a>
+              <a class="dropdown-item" href="{%url 'tipolist'%}">Listar tipo de prendas</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{%url 'categoriacreate'%}">Agregar Categoria de manga corta</a>
+              <a class="dropdown-item" href="{%url 'categorialist'%}">Listar categorias</a>
+              
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Coleccion
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{%url 'categoriacreate2'%}">Agregar nueva categoria</a>
+              <a class="dropdown-item" href="{%url 'categorialist2'%}">Listar categorias</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'ubicacioncreate'%}">Agregar Ubicacion</a>
+              <a class="dropdown-item" href="{% url 'ubicacionlist'%}">Listar Ubicaciones</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url 'electronicocreate'%}">Agregar Elemento a coleccion</a>
+              <a class="dropdown-item" href="{% url 'electronicolist'%}">Listar Coleecion</a>
+            </div>
+          </li>
+          {%endif%}
+        </ul>
+        {% if request.user.is_authenticated %}
+        <letra1>{{request.user}}</letra1>
+        <a  class="btn btn-danger" href="{% url 'logout' %}" role="button">Logout </a>
+        {%else%}
+        <a class="btn btn-primary" href="{% url 'signup'%}" role="button">SignUp</a>
+        <a class="btn btn-secondary" href="{% url 'login'%}" role="button">Login</a>
+        {%endif%}
+
+      </div>
+    </nav>
+    </div>
+    

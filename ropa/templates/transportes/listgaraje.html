@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{%load static %}
+
+{%block title %}Lista de garajes{% endblock %}
+
+{% block content %}
+
+<h3>Placas registradas</h3>
+<br>
+<table class="table table-secondary table-hover">
+<thead class="table-dark">
+	<tr>
+		<th>Ubicacion</th>
+		<th>Acciones</th>
+		<th></th>
+	</tr>
+</thead>
+<tbody>
+{% for pk in autos %}
+<tr>
+<td>{{pk.ubicacion}}</td>
+<td><a href="{% url 'garajeUpdate' pk=pk.id %}">Actualizar</a></td>
+<td><a href="{% url 'garajeDelete' pk=pk.id %}">Delete</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+{%endblock%}

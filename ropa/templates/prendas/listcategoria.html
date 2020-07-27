@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{%load static %}
+
+{%block title %}Lista de categoria de manga corta{% endblock %}
+
+{% block content %}
+
+<h3>Categorias de manga corta registradas</h3>
+<br>
+<table class="table table-secondary table-hover">
+<thead class="table-dark">
+	<tr>
+		<th>Categoria</th>
+		<th></th>
+		<th>Acciones</th>
+		<th></th>
+	</tr>
+</thead>
+<tbody>
+{% for pk in categoria %}
+<tr>
+<td>{{pk.categoria}}</td>
+<td><a href="{% url 'categoriaupdate' pk=pk.id %}">Actualizar</a></td>
+<td></td>
+<td><a href="{% url 'categoriadelete' pk=pk.id %}">Borrar</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{%endblock%}

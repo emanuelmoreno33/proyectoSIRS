@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{%load static %}
+
+{%block title %}Prendas de {{request.user}} {% endblock %}
+
+{% block content %}
+
+<center>
+    <div class="container">
+        <div class="row">
+          <div class="col-sm">
+    <h3>Colores</h3>
+    <a class="btn btn-outline-info " href="{% url 'colorcreate' %}" role="button">Nuevo Color</a>
+    <a class="btn btn-outline-info " href="{% url 'colorlist' %}" role="button">Ver Colores</a>
+    </div>
+    <div class="col-sm">
+    <h3>Marcas</h3>
+    <a class="btn btn-outline-info " href="{% url 'marcacreate' %}" role="button">Nueva Marca</a>
+    <a class="btn btn-outline-info " href="{% url 'marcalist' %}" role="button">Ver Marcas</a>
+    </div>
+    <div class="col-sm">
+    <h3>Tipos de prendas</h3>
+    <a class="btn btn-outline-info " href="{% url 'tipocreate' %}" role="button">Nuevo Tipo de prenda</a>
+    <a class="btn btn-outline-info " href="{% url 'tipolist' %}" role="button">Ver Tipo de prenda</a>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-sm">
+        <h3>Prendas</h3>
+    <a class="btn btn-outline-info " href="{% url 'prendacreate' %}" role="button">Nueva Prenda</a>
+    <a class="btn btn-outline-info " href="{% url 'prendalist' %}" role="button">Ver Prendas</a>
+    </div>
+    <div class="col-sm">
+    <h3>Categoria</h3>
+    <a class="btn btn-outline-info " href="{% url 'categoriacreate' %}" role="button">Nueva Categoria</a>
+    <a class="btn btn-outline-info " href="{% url 'categorialist' %}" role="button">Ver Categorias</a>
+    </div>
+    <div class="col-sm">
+    <h3>Playeras manga corta</h3>
+    <a class="btn btn-outline-info" href="{% url 'cortacreate' %}" role="button">Nueva Playera Manga Corta</a>
+    <a class="btn btn-outline-info" href="{% url 'cortalist' %}" role="button">Ver Playeras Manga Corta</a>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+        <div class="col-sm">
+        <h3>Conjunto</h3>
+        <a class="btn btn-outline-info " href="{% url 'conjuntocreate' %}" role="button">Nuevo Conjunto</a>
+        <a class="btn btn-outline-info " href="{% url 'conjuntolist' %}" role="button">Ver Conjuntos</a>
+        </div>
+        <div class="col-sm">
+        </div>
+</center>
+
+{%endblock%}

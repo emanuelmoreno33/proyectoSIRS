@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{%block title %}Delete{%endblock%}
+
+{% block content %}
+
+	<h3>¿Realmente quieres eliminar esta color? {{object.color}}</h3>
+	<form method="POST">
+		{% csrf_token %}
+		<button type="submit" class="btn btn-outline-danger">Delete</button>
+		<a class="btn btn-link" href="{% url 'colorlist'%}">Return</a>
+	</form>
+
+{% endblock %}

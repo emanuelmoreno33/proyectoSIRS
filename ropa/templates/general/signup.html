@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{%block title%}Crear usuario{%endblock%}
+{%block content%}
+<form method="POST">
+	{%csrf_token%}
+	{{form}}
+	<button type="submit" class="btn btn-outline-primary">SignUp</button>
+	<button type="reset" class="btn btn-outline-warning">Cancel</button>
+</form>
+{%endblock%}

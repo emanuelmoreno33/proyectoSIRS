@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+{% load static %}
+    <div class="container">
+
+      <h3>Busqueda filtrada</h3>
+      <form method="GET" action=".">
+        <div class="form-row">
+            <div class="form-group col-12">
+                <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search" name="nombreprenda" placeholder="Nombre de la prenda contiene..." />
+                    <span class="input-group-append">
+                        <div class="input-group-text bg-transparent">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </span>
+                </div>
+            </div>        
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    <form method="GET" action=".">
+        <div class="row">
+          <div class="col-sm">
+            <label for="tipoprenda">Tipo de prenda</label>
+            <select id="tipoprenda" class="form-control" name="tipoprenda">
+              <option selected>Elige tipo...</option>
+              {% for cat in tipo %}
+              <option value="{{ cat.tipo }}">{{ cat.tipo }}</option>
+              {% endfor %}
+            </select>
+          
+          <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+        </form>
+
+        <form method="GET" action=".">
+          <div class="form-group col-sm">
+            <label for="colorprenda">Color de prenda</label>
+            <select id="colorprenda" class="form-control" name="colorprenda">
+              <option selected>Elige color...</option>
+              {% for cat in color %}
+              <option value="{{ cat.color }}">{{ cat.color }}</option>
+              {% endfor %}
+            </select>
+          <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+        </form>
+
+        <form method="GET" action=".">
+          <div class="form-group col-sm">
+            <label for="marcaprenda">Marca de prenda</label>
+            <select id="marcaprenda" class="form-control" name="marcaprenda">
+              <option selected>Elige marca...</option>
+              {% for cat in marca %}
+              <option value="{{ cat.marca }}">{{ cat.marca }}</option>
+              {% endfor %}
+            </select>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </div>
+      </form>
+      <table class="table table-secondary table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>Nombre</th>
+            <th>Tipo</th>
+                <th>Marca</th>
+                <th>color</th>
+                <th>Imagen</th>
+            <th></th>
+            <th>Acciones</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for pk in queryset %}
+        <tr>
+        <td>{{pk.nombre}}</td>
+        <td>{{pk.tipo}}</td>
+        <td>{{pk.marca}}</td>
+        <td>{{pk.color}}</td>
+        {% if pk.imagen %}
+        <td><a href="{{pk.imagen.url}}"> <img src="{{pk.imagen.url}}" class="img-thumbnail" width="250" height="500" alt="Imagen no encontrada"></a></td>
+        {%else%}
+        <td><img src="#" class="img-thumbnail" width="150" height="300" alt="Imagen no encontrada, agregue una"></a></td>
+        {%endif%}
+        <td><a href="{% url 'prendadetail' id=pk.id %}">Detalles</a></td>
+        <td><a href="{% url 'prendaupdate' pk=pk.id %}">Actualizar</a></td>
+        <td><a href="{% url 'prendadelete' pk=pk.id %}">Borrar</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+
+{% endblock %}

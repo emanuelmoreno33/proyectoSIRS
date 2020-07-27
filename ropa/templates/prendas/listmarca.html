@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{%load static %}
+
+{%block title %}Lista de marcas{% endblock %}
+
+{% block content %}
+
+<h3>Marcas registradas</h3>
+<br>
+<table class="table table-secondary table-hover">
+<thead class="table-dark">
+	<tr>
+		<th>Marca</th>
+		<th></th>
+		<th>Acciones</th>
+		<th></th>
+	</tr>
+</thead>
+<tbody>
+{% for pk in marca %}
+<tr>
+<td>{{pk.marca}}</td>
+<td><a href="{% url 'marcaupdate' pk=pk.id %}">Actualizar</a></td>
+<td></td>
+<td><a href="{% url 'marcadelete' pk=pk.id %}">Borrar</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{%endblock%}

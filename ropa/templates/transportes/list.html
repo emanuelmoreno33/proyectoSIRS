@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{%load static %}
+
+{%block title %}Lista de autos{% endblock %}
+
+{% block content %}
+
+<h3>Autos registrados</h3>
+<br>
+<table class="table table-secondary table-hover">
+<thead class="table-dark">
+	<tr>
+		<th>Modelo</th>
+		<th>Marca</th>
+        <th>Tipo</th>
+        <th>Garaje</th>
+        <th>Imagen</th>
+		<th></th>
+		<th>Acciones</th>
+		<th></th>
+	</tr>
+</thead>
+<tbody>
+{% for pk in autos %}
+<tr>
+<td>{{pk.modelo}}</td>
+<td>{{pk.marca}}</td>
+<td>{{pk.tipo}}</td>
+<td>{{pk.garaje}}</td>
+{% if pk.imagen %}
+<td><a href="{{pk.imagen.url}}"> <img src="{{pk.imagen.url}}" class="img-thumbnail" width="250" height="500" alt="Imagen no encontrada"></a></td>
+{% else %}
+<td><img src="#" class="img-thumbnail" width="250" height="300" alt="Imagen no encontrada, agregue una"></a></td>
+{%endif%}
+<td><a href="{% url 'autodetail' id=pk.id %}">Detalles</a></td>
+<td><a href="{% url 'autoUpdate' pk=pk.id %}">Actualizar</a></td>
+<td><a href="{% url 'autoDelete' pk=pk.id %}">Borrar</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{%endblock%}

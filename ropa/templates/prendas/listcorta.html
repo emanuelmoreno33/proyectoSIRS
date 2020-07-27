@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{%load static %}
+
+{%block title %}Lista de playeras manga corta{% endblock %}
+
+{% block content %}
+
+<h3>Playeras registradas</h3>
+<br>
+<table class="table table-secondary table-hover">
+<thead class="table-dark">
+	<tr>
+		<th>Prenda</th>
+		<th>Categoria</th>
+		<th>Usada</th>
+		<th></th>
+		<th>Acciones</th>
+		<th></th>
+	</tr>
+</thead>
+<tbody>
+{% for pk in categoria %}
+<tr>
+<td>{{pk.prenda.nombre}}</td>
+<td>{{pk.categoria}}</td>
+{%if pk.usada == True%}
+<td><img src="{{ '/media/general/si.png' }}"class="img-thumbnail" width="50" height="50" alt="Imagen no encontrada"></td>
+{%else%}
+<td><img src="{{ '/media/general/no.png' }}"class="img-thumbnail" width="50" height="50" alt="Imagen no encontrada"></td>
+{%endif%}
+<!-- <td><a href="{% url 'cortadetail' id=pk.id %}">Detalles</a></td> -->
+<td><a href="{% url 'cortaupdate' pk=pk.id %}">Actualizar</a></td>
+<td></td>
+<td><a href="{% url 'cortadelete' pk=pk.id %}">Borrar</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<div class="fixed-bottom">
+	<center>"Icon made by smashicons from www.flaticon.com"</center>
+</div>
+{%endblock%}

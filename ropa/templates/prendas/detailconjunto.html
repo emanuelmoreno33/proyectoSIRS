@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{%load static %}
+{%block title %}{%endblock%}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+Nombre: {{object.nombre}}<br>
+Historia: {{object.descripcion}}<br>
+    </div>
+  </div>
+</div>
+<br>
+<ul class="list-unstyled">
+  {% for prenda in object.prendas.all %}
+  <li class="media">
+    <img src="..." class="mr-3" alt="...">
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">{{ prenda.nombre }}</h5>
+      {{prenda.marca}}<br>
+      {{prenda.tipo}}
+    </div>
+  </li>
+  {%endfor%}
+</ul>
+{%endblock%}

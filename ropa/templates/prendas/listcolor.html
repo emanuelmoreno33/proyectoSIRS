@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{%load static %}
+
+{%block title %}Lista de autos{% endblock %}
+
+{% block content %}
+
+<h3>Colores registrados</h3>
+<br>
+<table class="table table-hover">
+	<tr>
+        <th>Color</th>
+        <th></th>
+		<th>Acciones</th>
+		<th></th>
+	</tr>
+</thead>
+<tbody>
+{% for pk in color %}
+<tr>
+<td BGCOLOR='{{pk.ejemplo}}'>{{pk.color}}</td>
+<td BGCOLOR='{{pk.ejemplo}}'><a href="{% url 'colorupdate' pk=pk.id %}">Actualizar</a></td>
+<td BGCOLOR='{{pk.ejemplo}}'></td>
+<td BGCOLOR='{{pk.ejemplo}}'><a href="{% url 'colordelete' pk=pk.id %}">Borrar</a></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{%endblock%}

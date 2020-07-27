@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+{% load static %}
+    <div class="container">
+
+      <h3>Busqueda filtrada</h3>
+      <form method="GET" action=".">
+        <div class="form-row">
+            <div class="form-group col-12">
+                <div class="input-group">
+                    <input class="form-control py-2 border-right-0 border" type="search" name="nombreauto" placeholder="Nombre del auto contiene..." />
+                    <span class="input-group-append">
+                        <div class="input-group-text bg-transparent">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </span>
+                </div>
+            </div>        
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    <form method="GET" action=".">
+        <div class="row">
+          <div class="col-sm">
+            <label for="marcaauto">Marca de auto</label>
+            <select id="marcaauto" class="form-control" name="marcaauto">
+              <option selected>Elige marca...</option>
+              {% for cat in tipos %}
+              <option value="{{ cat }}">{{ cat }}</option>
+              {% endfor %}
+            </select>
+          
+          <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+        </form>
+
+        <form method="GET" action=".">
+          <div class="col-sm">
+            <label for="tipoauto">Tipo de auto</label>
+            <select id="tipoauto" class="form-control" name="tipoauto">
+              <option selected>Elige tipo...</option>
+              {% for cat in marcas %}
+              <option value="{{ cat.ubicacion }}">{{ cat.ubicacion }}</option>
+              {% endfor %}
+            </select>
+          <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+        </form>
+
+        <form method="GET" action=".">
+            <div class="col-sm">
+              <label for="placaauto">Placa del auto</label>
+              <select id="placaauto" class="form-control" name="placaauto">
+                <option selected>Elige placa...</option>
+                {% for cat in placa %}
+                <option value="{{ cat.placa }}">{{ cat.placa }}</option>
+                {% endfor %}
+              </select>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+          </div>
+          </form>
+
+          <form method="GET" action=".">
+            <div class="col-sm">
+              <label for="garajeauto">Garaje del auto</label>
+              <select id="garajeauto" class="form-control" name="garajeauto">
+                <option selected>Elige garaje...</option>
+                {% for cat in garaje %}
+                <option value="{{ cat.ubicacion }}">{{ cat.ubicacion }}</option>
+                {% endfor %}
+              </select>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+          </div>
+          </form>
+        
+        </div>
+
+{% endblock %}

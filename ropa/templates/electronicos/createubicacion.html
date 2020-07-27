@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{%block title %}Create{%endblock%}
+
+{% block content %}
+<div>
+<form id="autos_form" class="form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-outline-primary form-control">Create</button>
+    <button type="reset" class="btn btn-outline-warning form-control">Cancel</button>
+    </form>
+</div>
+    {%endblock%}

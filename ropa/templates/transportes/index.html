@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{%load static %}
+
+{%block title %}Vehiculos de GTA Online{% endblock %}
+
+{% block content %}
+
+<center>
+    <a class="btn btn-outline-success btn-lg" href="{% url 'placalist' %}" role="button">Placas</a>
+    <br>
+    <br>
+    <a class="btn btn-outline-success btn-lg" href="{% url 'garajelist' %}" role="button">Garajes</a>
+    <br>
+    <br>
+    <a class="btn btn-outline-success btn-lg" href="{% url 'autolist' %}" role="button">Autos</a>
+</center>
+
+{%endblock%}
